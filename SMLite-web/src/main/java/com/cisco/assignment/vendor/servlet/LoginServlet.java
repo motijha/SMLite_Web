@@ -1,4 +1,4 @@
-package com.assignment.vendor.servlet;
+package com.cisco.assignment.vendor.servlet;
 
 import java.io.IOException;
 

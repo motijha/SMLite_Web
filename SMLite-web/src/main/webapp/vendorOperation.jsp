@@ -21,9 +21,9 @@
 			<a id="drop1" href="#" role="button" class="dropdown-toggle"
 				data-toggle="dropdown">Vendor <b class="caret"></b></a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-				<li><a tabindex="-1"
+				<li style="background: #5CB3FF; font-weight: bold;"><a tabindex="-1"
 					href="javascript:showAddUpdateVendor(-1, true)">New</a></li>
-				<li><a tabindex="-1" href="javascript:location.reload();">Refresh</a></li>
+				<li style="background: #5CB3FF; font-weight: bold;"><a tabindex="-1" href="javascript:location.reload();">Refresh</a></li>
 			</ul>
 		</div>
 		<br>
@@ -110,11 +110,11 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<button class="btn" type="button" id="btnSave"
+							<button style="background: #5CB3FF; font-weight: bold; class="btn" type="button" id="btnSave"
 								onclick="saveVendor()">Add/Update</button>
-							<button class="btn" type="button" id="btnReset"
+							<button style="background: #5CB3FF; font-weight: bold; class="btn" type="button" id="btnReset"
 								onclick="resetVendorForm()">Reset</button>
-							<button class="btn" type="button" id="btnCancel"
+							<button style="background: #5CB3FF; font-weight: bold; class="btn" type="button" id="btnCancel"
 								onclick="hideVendorForm()">Cancel</button>
 						</td>
 					</tr>

@@ -7,7 +7,7 @@
   <description>Vendor Assignment</description>
   <servlet>
     <servlet-name>login</servlet-name>
-    <servlet-class>com.assignment.vendor.servlet.LoginServlet</servlet-class>
+    <servlet-class>com.cisco.assignment.vendor.servlet.LoginServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

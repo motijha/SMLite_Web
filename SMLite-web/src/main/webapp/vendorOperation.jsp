@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%-- <%@page import="com.assignment.vendor.dao.OrderType"%>
-
-<%@page import="com.assignment.vendor.dao.Vendor"%>
-<%@page import="com.assignment.vendor.helper.DBHelper"%>
-<%@page import="java.util.List"%> --%>
+<%-- <%@page import="com.assignment.vendor.dao.OrderType"%> --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%-- <%@page import="com.assignment.vendor.dao.Vendor"%>
+<%@page import="com.assignment.vendor.helper.DBHelper"%> --%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,9 +16,69 @@
 <script type="text/javascript" src="js/vendor.js"></script>
 </head>
 <body>
-Spend Management!
 	<div style="margin: 100px 0 0 100px;">
-	<div id="divAddEditVendor" style="display: none;">
+		<div class="dropdown clearfix">
+			<a id="drop1" href="#" role="button" class="dropdown-toggle"
+				data-toggle="dropdown">Vendor <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				<li><a tabindex="-1"
+					href="javascript:showAddUpdateVendor(-1, true)">New</a></li>
+				<li><a tabindex="-1" href="javascript:location.reload();">Refresh</a></li>
+			</ul>
+		</div>
+		<br>
+		<div id="divListOfVendors">
+			<div style="margin-bottom: 5px;"><b><u>List of Vendors:</u></b></div>
+			<table id="vendors" border="2" cellpadding="5px"
+				style="font-size: 12px;">
+				<thead>
+					<tr style="background: #5CB3FF; font-weight: bold;">
+						<td>ID</td>
+						<td>Name</td>
+						<td>Is Purchase Order Available?</td>
+						<td>Purchase Number</td>
+						<td>Purchase Type</td>
+						<td>Actions</td>
+					</tr>
+				</thead>
+				<%--
+					DBHelper dbHelper = DBHelper.getInstance();
+					List<OrderType> listOrderTypes = dbHelper.getOderTypes();
+					List<Vendor> vendors = dbHelper.getVendors();
+
+					if (vendors.size() == 0) {
+				--%>
+				<tr>
+					<td colspan="6" align="center">There are no vendors to
+						display.</td>
+				</tr>
+				<%--
+					} else {
+						for (int i = 0; i < vendors.size(); i++) {
+							Vendor vendor = vendors.get(i);
+				--%>
+				<%-- <tr>
+					<td><%=vendor.getId()%></td>
+					<td><%=vendor.getName()%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? "Yes" : "No"%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? vendor
+							.getPurchaseNumber() : "N/A"%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? listOrderTypes
+							.get(vendor.getOrderType() - 1).getName() : "N/A"%></td>
+					<td>
+						<button class="btn" id="btnEdit<%=vendor.getId()%>"
+							onclick="showAddUpdateVendor(<%=vendor.getId()%>, false)">Edit</button>
+						<button class="btn" id="btnDelete<%=vendor.getId()%>"
+							onclick="deleteVendor(<%=vendor.getId()%>, '<%=vendor.getName()%>')">Delete</button>
+					</td>
+				</tr> --%>
+				<%--
+					}
+					}
+				--%>
+			</table>
+		</div>
+		<div id="divAddEditVendor" style="display: none;">
 			<div id="addUpdateFormTitle"
 				style="margin-bottom: 10px; text-decoration: underline; font-weight: bold;"></div>
 			<div id="divErrMsg" style="margin-bottom: 10px; color: #FF0000"></div>
@@ -63,6 +121,6 @@ Spend Management!
 				</table>
 			</form>
 		</div>
-	</div> 
+	</div>
 </body>
 </html>

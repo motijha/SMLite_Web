@@ -1,4 +1,4 @@
-package com.cisco.assignment.vendor.dao;
+package com.cisco.assignment.vendor.model;
 
 import org.sakaiproject.entitybus.entityprovider.annotations.EntityId;
 

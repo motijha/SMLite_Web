@@ -1,4 +1,4 @@
-package com.cisco.assignment.vendor.dao;
+package com.cisco.assignment.vendor.model;
 
 /**
  * Bean for storing purchase order types.

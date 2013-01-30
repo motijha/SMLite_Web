@@ -1,38 +1,55 @@
 package com.cisco.assignment.vendor.servlet;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.sakaiproject.entitybus.EntityBrokerManager;
+import org.sakaiproject.entitybus.entityprovider.EntityProviderManager;
+import org.sakaiproject.entitybus.impl.EntityBrokerCoreServiceManager;
+import org.sakaiproject.entitybus.providers.EntityRequestHandler;
+import org.sakaiproject.entitybus.rest.EntityBrokerRESTServiceManager;
+import org.sakaiproject.entitybus.util.AbstractAutoRegisteringProvider;
+import org.sakaiproject.entitybus.util.servlet.DirectServlet;
+
+import com.cisco.assignment.vendor.providers.VendorEntityProvider;
+
 
 /**
  * The servlet that manages the application's all RESTful service providers.
  * 
  * 
  */
-public class VendorRESTfulServlet { //extends DirectServlet {
+public class VendorRESTfulUtilityServlet extends DirectServlet {
 
 	private static final long serialVersionUID = -1L;
-
-	/*private transient EntityBrokerCoreServiceManager entityBrokerCoreServiceManager;
+	private transient EntityBrokerCoreServiceManager entityBrokerCoreServiceManager;
 	private transient EntityBrokerRESTServiceManager entityRESTServiceManager;
 
 	private transient List<AbstractAutoRegisteringProvider> entityProviders;
-
-	*//**
+	
+	
+	/**
 	 * Starts up all the entity providers and places them into the list
 	 * 
 	 * @param entityProviderManager
 	 *            the provider manager
-	 *//*
+	 */
 	protected void startProviders(EntityProviderManager entityProviderManager) {
 		this.entityProviders = new ArrayList<AbstractAutoRegisteringProvider>();
 		this.entityProviders
 				.add(new VendorEntityProvider(entityProviderManager));
 	}
-
+	
+	
 	@Override
 	public EntityRequestHandler initializeEntityRequestHandler() {
 		EntityRequestHandler erh;
 		try {
 			// Creating connection to the DB and initializing the helper object.
-			DBHelper.getInstance().init();
+			//DBHelper.getInstance().init();
 
 			// fire up the EB services
 			this.entityBrokerCoreServiceManager = new EntityBrokerCoreServiceManager();
@@ -62,7 +79,7 @@ public class VendorRESTfulServlet { //extends DirectServlet {
 	@Override
 	public void destroy() {
 		super.destroy();
-		DBHelper.getInstance().deInit();
+		//DBHelper.getInstance().deInit();
 		if (this.entityProviders != null) {
 			for (AbstractAutoRegisteringProvider provider : entityProviders) {
 				if (provider != null) {
@@ -97,5 +114,6 @@ public class VendorRESTfulServlet { //extends DirectServlet {
 			HttpServletResponse res, String path) {
 		throw new SecurityException("Not able to handle login redirects yet");
 	}
-*/
+	
+	
 }

@@ -7,7 +7,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.cisco.assignment.vendor.support.TestSupport;
+import com.cisco.assignment.vendor.helper.HibernateUtil;
+
+
 
 
 public class OrderTypeTest  {
@@ -15,7 +17,7 @@ public class OrderTypeTest  {
   
    @BeforeClass
    public static void initialze() {
-	   session = TestSupport.getSession();
+	  session = HibernateUtil.getSessionFactory().openSession();
    }
 	@Test
 	public void testAddOrUpdateOrderTypeRecord() {		

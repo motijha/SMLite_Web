@@ -1,7 +1,7 @@
-<%-- <%@page import="com.assignment.vendor.dao.OrderType"%> --%>
+ <%@page import="com.cisco.assignment.vendor.model.OrderType"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%-- <%@page import="com.assignment.vendor.dao.Vendor"%>
-<%@page import="com.assignment.vendor.helper.DBHelper"%> --%>
+<%@page import="com.cisco.assignment.vendor.model.Vendor"%>
+<%@page import="com.cisco.assignment.vendor.helper.DBSupportHelper"%> 
 <%@page import="java.util.List"%>
 <html>
 <head>
@@ -41,23 +41,23 @@
 						<td>Actions</td>
 					</tr>
 				</thead>
-				<%--
-					DBHelper dbHelper = DBHelper.getInstance();
-					List<OrderType> listOrderTypes = dbHelper.getOderTypes();
-					List<Vendor> vendors = dbHelper.getVendors();
-
+				<%
+					DBSupportHelper dbSupportHelper = DBSupportHelper.getInstance();
+				    dbSupportHelper.init();
+					List<OrderType> listOrderTypes = dbSupportHelper.getOderTypes();				    
+					List<Vendor> vendors = dbSupportHelper.getVendors();					
 					if (vendors.size() == 0) {
-				--%>
+				%>
 				<tr>
 					<td colspan="6" align="center">There are no vendors to
 						display.</td>
 				</tr>
-				<%--
-					} else {
+				<%
+					 } else {
 						for (int i = 0; i < vendors.size(); i++) {
 							Vendor vendor = vendors.get(i);
-				--%>
-				<%-- <tr>
+			%>
+				  <tr>
 					<td><%=vendor.getId()%></td>
 					<td><%=vendor.getName()%></td>
 					<td><%=vendor.isPurchaseOrderAvailable() ? "Yes" : "No"%></td>
@@ -71,11 +71,11 @@
 						<button class="btn" id="btnDelete<%=vendor.getId()%>"
 							onclick="deleteVendor(<%=vendor.getId()%>, '<%=vendor.getName()%>')">Delete</button>
 					</td>
-				</tr> --%>
-				<%--
+				</tr> 
+				 <%
 					}
 					}
-				--%>
+				%>
 			</table>
 		</div>
 		<div id="divAddEditVendor" style="display: none;">
@@ -105,7 +105,10 @@
 					<tr valign="top">
 						<td>Purchase Order Type</td>
 						<td><select id="orderType" name="orderType">
-							
+							<% for (int i = 0; i < listOrderTypes.size(); i++) {
+								%>
+								<option value="<%= listOrderTypes.get(i).getId() %>"><%= listOrderTypes.get(i).getName()%></option>
+							<%} %>
 						</select></td>
 					</tr>
 					<tr>

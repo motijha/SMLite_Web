@@ -27,10 +27,9 @@
 			</ul>
 			
 		</div>
-		<br>
-		<br>
-		<div><b class="caret"><u><a tabindex="-1"
-					href="javascript:showVendorReport()">Vendor Projection Report</a></u></b></div></div>
+		<br><br>
+		<div style="margin-bottom: 5px;"><b><u><a href="javascript:showVendorReport()">Vendor Projection Report</a></u></b></div>			
+		
 		<br>
 		<div id="divListOfVendors">
 			<div style="margin-bottom: 5px;"><b><u>List of Vendors:</u></b></div>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="3.485" errors="0" skipped="0" tests="4" name="com.cisco.assignment.vendor.helper.DBSupportHelperTest">
+<testsuite failures="0" time="2.013" errors="0" skipped="0" tests="4" name="com.cisco.assignment.vendor.helper.DBSupportHelperTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_23\jre\bin"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="C:\Moti\git\GT_Repo\SMLite-web"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_23\jre\lib\endorsed"/>
     <property name="os.arch" value="x86"/>
-    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter1748981216677947662.jar"/>
+    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter2629779505587282550.jar"/>
     <property name="java.io.tmpdir" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -61,6 +61,6 @@
   </properties>
   <testcase time="0" classname="com.cisco.assignment.vendor.helper.DBSupportHelperTest" name="testGetOderTypes"/>
   <testcase time="0.01" classname="com.cisco.assignment.vendor.helper.DBSupportHelperTest" name="testGetVendors"/>
-  <testcase time="0.04" classname="com.cisco.assignment.vendor.helper.DBSupportHelperTest" name="testAddOrUpdateVendorObjRecord"/>
+  <testcase time="0.03" classname="com.cisco.assignment.vendor.helper.DBSupportHelperTest" name="testAddOrUpdateVendorObjRecord"/>
   <testcase time="0" classname="com.cisco.assignment.vendor.helper.DBSupportHelperTest" name="testGetVendor"/>
 </testsuite>

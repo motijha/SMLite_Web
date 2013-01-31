@@ -1,5 +1,20 @@
 var OP_RESET = 1;
-
+function showVendorReport() {
+	
+	var form = $("#vendorProjectionReportForm")[0];
+	var title = $("#vendorProjectionReportFormTitle");
+	
+	form.reset();
+	
+	title.html("Vendor Projection Report:");
+	form.id.value = -1;
+	$("#divListOfVendors").css("display", "none");
+	$("#divAddEditVendor").css("display", "none");
+	$("#divVendorProjectionReportLink").css("display", "none");
+	$("#vendorOperation").css("display", "none");	
+	$("#divVendorProjectionReport").css("display", "block");
+	
+}
 function showAddUpdateVendor(id, isAdd, operation) {
 	var form = $("#addUpdateVendor")[0];
 	var title = $("#addUpdateFormTitle");

@@ -17,9 +17,9 @@
 </head>
 <body>
 	<div style="margin: 100px 0 0 100px;">
-		<div class="dropdown clearfix">
+		<div id="vendorOperation" class="dropdown clearfix">
 			<a id="drop1" href="#" role="button" class="dropdown-toggle"
-				data-toggle="dropdown">Vendor <b class="caret"></b></a>
+				data-toggle="dropdown">Vendor Operation<b class="caret"></b></a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
 				<li style="background: #5CB3FF; font-weight: bold;"><a tabindex="-1"
 					href="javascript:showAddUpdateVendor(-1, true)">New</a></li>
@@ -28,7 +28,7 @@
 			
 		</div>
 		<br><br>
-		<div style="margin-bottom: 5px;"><b><u><a href="javascript:showVendorReport()">Vendor Projection Report</a></u></b></div>			
+		<div id="divVendorProjectionReportLink" style="margin-bottom: 5px;"><b><u><a tabindex="-1" href="javascript:showVendorReport()">Vendor Projection Report</a></u></b></div>			
 		
 		<br>
 		<div id="divListOfVendors">
@@ -84,6 +84,67 @@
 				%>
 			</table>
 		</div>
+
+        <div id="divVendorProjectionReport" style="display: none;">
+			<div id="vendorProjectionReportFormTitle"
+				style="margin-bottom: 10px; text-decoration: underline; font-weight: bold;"></div>
+			<div id="divErrMsg" style="margin-bottom: 10px; color: #FF0000"></div>
+			<form id="vendorProjectionReportForm" name="vendorProjectionReportForm" action="#">
+				<table id="vendors" border="2" cellpadding="5px"
+				style="font-size: 12px;">
+				<thead>
+					<tr style="background: #5CB3FF; font-weight: bold;">
+						<td>ID</td>
+						<td>Vendor</td>						
+						<td>Purchase Type</td>
+						<td>Purchase Cost</td>
+						<td>Purchase Month</td>					
+					</tr>
+				</thead>
+				<%
+					/* DBSupportHelper dbSupportHelper = DBSupportHelper.getInstance();
+				    dbSupportHelper.init();
+					List<OrderType> listOrderTypes = dbSupportHelper.getOderTypes();				    
+					List<Vendor> vendors = dbSupportHelper.getVendors();					
+					if (vendors.size() == 0) { */
+				%>
+				<tr>
+					<td colspan="6" align="center">There are no vendors to
+						display.</td>
+				</tr>
+				<%
+					 /* } else {
+						for (int i = 0; i < vendors.size(); i++) {
+							Vendor vendor = vendors.get(i);
+		 */	%>
+				  <%-- <tr>
+					<td><%=vendor.getId()%></td>
+					<td><%=vendor.getName()%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? "Yes" : "No"%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? vendor
+							.getPurchaseNumber() : "N/A"%></td>
+					<td><%=vendor.isPurchaseOrderAvailable() ? listOrderTypes
+							.get(vendor.getOrderType() - 1).getName() : "N/A"%></td>
+					<td><%= vendor.getCost()%></td>
+					<td>
+						<button class="btn" id="btnEdit<%=vendor.getId()%>"
+							onclick="showAddUpdateVendor(<%=vendor.getId()%>, false)">Edit</button>
+						<button class="btn" id="btnDelete<%=vendor.getId()%>"
+							onclick="deleteVendor(<%=vendor.getId()%>, '<%=vendor.getName()%>')">Delete</button>
+					</td>
+				</tr>  --%>
+				 <%
+					//}
+					//}
+				%>
+			</table>
+			</form>
+		</div>
+	
+
+
+
+
 		<div id="divAddEditVendor" style="display: none;">
 			<div id="addUpdateFormTitle"
 				style="margin-bottom: 10px; text-decoration: underline; font-weight: bold;"></div>

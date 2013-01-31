@@ -19,7 +19,7 @@
     <property name="basedir" value="C:\Moti\git\GT_Repo\SMLite-web"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_23\jre\lib\endorsed"/>
     <property name="os.arch" value="x86"/>
-    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter4594882178226130181.jar"/>
+    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter4022235959462795232.jar"/>
     <property name="java.io.tmpdir" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -59,6 +59,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="0" classname="com.cisco.assignment.vendor.model.VendorTest" name="testAddOrUpdateVendorObjRecord"/>
+  <testcase time="0.01" classname="com.cisco.assignment.vendor.model.VendorTest" name="testAddOrUpdateVendorObjRecord"/>
   <testcase time="0" classname="com.cisco.assignment.vendor.model.VendorTest" name="testAddOrUpdateVendorRecord"/>
 </testsuite>

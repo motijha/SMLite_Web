@@ -19,7 +19,7 @@
     <property name="basedir" value="C:\Moti\git\GT_Repo\SMLite-web"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_23\jre\lib\endorsed"/>
     <property name="os.arch" value="x86"/>
-    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter2629779505587282550.jar"/>
+    <property name="surefire.real.class.path" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\surefirebooter4594882178226130181.jar"/>
     <property name="java.io.tmpdir" value="C:\DOCUME~1\SHTANK~1.CIS\LOCALS~1\Temp\"/>
     <property name="line.separator" value="
 "/>

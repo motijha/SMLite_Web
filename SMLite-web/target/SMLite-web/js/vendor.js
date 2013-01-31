@@ -62,8 +62,10 @@ function enablePurchaseDetails(state) {
 	var form = $("#addUpdateVendor")[0];
 	var number = form.purchaseNumber;
 	var type = form.orderType;
+	var cost = form.cost;
 	number.disabled = !state;
 	type.disabled = !state;
+	cost.disabled = !state;
 }
 
 function saveVendor() {

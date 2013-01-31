@@ -2,10 +2,9 @@ package com.cisco.assignment.vendor.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.sakaiproject.entitybus.entityprovider.annotations.EntityId;
 
@@ -20,44 +19,42 @@ public class Vendor {
 
 	@EntityId
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private int id;
     
 	@Column(name = "name")
 	private String name;
     
+	@Transient
+	private boolean purchaseOrderAvailable;
+	
 	@Column(name = "purchaseOrderAvailable")
-	private int purchaseOrderAvailable;
+	private int purchaseAvailable;
     
 	@Column(name = "purchaseNumber")
 	private String purchaseNumber;
     
 	@Column(name = "orderType")
 	private int orderType;
-
+	
+	@Column(name = "cost")
+	private int cost;
+	
 	public Vendor() {
 	}
 
-	public Vendor(int id, String name, int purchaseOrderAvailable,
-			String purchaseNumber, int orderType) {
+	public Vendor(int id, String name, boolean purchaseOrderAvailable,
+			String purchaseNumber, int orderType, int cost) {
 		this.id = id;
 		this.name = name;
-		this.purchaseOrderAvailable = purchaseOrderAvailable;
+		this.purchaseAvailable = purchaseOrderAvailable == true ? 1 : 0;
 		this.purchaseNumber = purchaseNumber;
 		this.orderType = orderType;
+		this.cost = cost;
 	}
     
-	
-	public Vendor(String name, int purchaseOrderAvailable,
-			String purchaseNumber, int orderType) {
-		this.name = name;
-		this.purchaseOrderAvailable = purchaseOrderAvailable;
-		this.purchaseNumber = purchaseNumber;
-		this.orderType = orderType;
-	}
-
-	
+		
 	public int getId() {
 		return id;
 	}
@@ -75,10 +72,13 @@ public class Vendor {
 	}
 
 	public boolean isPurchaseOrderAvailable() {	    
-		return purchaseOrderAvailable == 1 ? true : false;
+		if(!purchaseOrderAvailable) {
+			return purchaseAvailable == 1 ? true : false;
+		}		
+		return purchaseOrderAvailable;
 	}
-
-	public void setPurchaseOrderAvailable(int purchaseOrderAvailable) {
+	public void setPurchaseOrderAvailable(boolean purchaseOrderAvailable) {
+		this.purchaseAvailable = (purchaseOrderAvailable == true)  ? 1 : 0;
 		this.purchaseOrderAvailable = purchaseOrderAvailable;
 	}
 
@@ -100,8 +100,36 @@ public class Vendor {
 
 	public String toString() {
 		return "Vendor [id=" + id + ", name=" + name
-				+ ", purchaseOrderAvailable=" + purchaseOrderAvailable
+				+ ", purchaseOrderAvailable=" + purchaseOrderAvailable +", Cost=" + cost 
 				+ ", purchaseNumber=" + purchaseNumber + ", purchaseType="
 				+ orderType + "]";
+	}
+
+	/**
+	 * @param purchaseAvailable the purchaseAvailable to set
+	 */
+	public void setPurchaseAvailable(int purchaseAvailable) {
+		this.purchaseAvailable = (purchaseOrderAvailable == true)  ? 1 : 0;
+	}
+
+	/**
+	 * @return the purchaseAvailable
+	 */
+	public int getPurchaseAvailable() {
+		return purchaseAvailable;
+	}
+
+	/**
+	 * @param cost the cost to set
+	 */
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	/**
+	 * @return the cost
+	 */
+	public int getCost() {
+		return cost;
 	}
 }

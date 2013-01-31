@@ -83,13 +83,16 @@ public class VendorEntityProvider extends AbstractAutoRegisteringProvider
 	public String createEntity(EntityReference ref, Object entity,
 			Map<String, Object> params) {
 		Vendor vendor = (Vendor) entity;
+		System.out.println("Map"+params+" Create Vendor--->"+vendor);
 		DBSupportHelper dbHelper = DBSupportHelper.getInstance();
 		if (!vendor.isPurchaseOrderAvailable()) {
+		    System.out.println("Not Available-->");
 			vendor.setPurchaseNumber("");
 			vendor.setOrderType(dbHelper.getOderTypes().get(0).getId());
 		}
 		try {
-			return String.valueOf(dbHelper.addOrUpdateVendor((Vendor) entity));
+			 System.out.println("Available-->");
+			return String.valueOf(dbHelper.addOrUpdateVendor(vendor));
 		} catch (SQLException e) {
 			String msg = "Error while creating the vendor; " + vendor;
 			System.err.println(msg);

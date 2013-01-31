@@ -20,9 +20,9 @@ public class VendorTest  {
 	@Test
 	public void testAddOrUpdateVendorRecord() {		
 		
-		//int id =1;
+		int id =14534;
 		String name = "test1";
-		Vendor vendorObj = new Vendor(name, 1, "234", 1);	
+		Vendor vendorObj = new Vendor(id,name, true, "234", 1, 321421);	
 		//session.beginTransaction();
 		session.saveOrUpdate(vendorObj);
 		//session.getTransaction().commit();
@@ -35,10 +35,12 @@ public class VendorTest  {
 	public void testAddOrUpdateVendorObjRecord() {		
 			
 		Vendor vendorObj = new Vendor();
+		vendorObj.setId(234);
 		vendorObj.setName("Vendor");
 		vendorObj.setOrderType(2);
 		vendorObj.setPurchaseNumber("111");
-		vendorObj.setPurchaseOrderAvailable(1);
+		vendorObj.setPurchaseOrderAvailable(true);
+		vendorObj.setCost(46464);
 		
 		//session.beginTransaction();
 		session.saveOrUpdate(vendorObj);
@@ -48,6 +50,7 @@ public class VendorTest  {
 	    assertEquals(2, vendorObj.getOrderType());
 	    assertEquals(true, vendorObj.isPurchaseOrderAvailable());
 		assertEquals("111", vendorObj.getPurchaseNumber());	
+		assertEquals(46464, vendorObj.getCost());	
 		
 		
 	}

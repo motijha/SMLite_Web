@@ -14,6 +14,7 @@ import org.sakaiproject.entitybus.rest.EntityBrokerRESTServiceManager;
 import org.sakaiproject.entitybus.util.AbstractAutoRegisteringProvider;
 import org.sakaiproject.entitybus.util.servlet.DirectServlet;
 
+import com.cisco.assignment.vendor.helper.DBSupportHelper;
 import com.cisco.assignment.vendor.providers.VendorEntityProvider;
 
 
@@ -49,7 +50,7 @@ public class VendorRESTfulUtilityServlet extends DirectServlet {
 		EntityRequestHandler erh;
 		try {
 			// Creating connection to the DB and initializing the helper object.
-			//DBHelper.getInstance().init();
+			DBSupportHelper.getInstance().init();
 
 			// fire up the EB services
 			this.entityBrokerCoreServiceManager = new EntityBrokerCoreServiceManager();

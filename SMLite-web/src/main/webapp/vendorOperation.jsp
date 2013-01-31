@@ -25,7 +25,12 @@
 					href="javascript:showAddUpdateVendor(-1, true)">New</a></li>
 				<li style="background: #5CB3FF; font-weight: bold;"><a tabindex="-1" href="javascript:location.reload();">Refresh</a></li>
 			</ul>
+			
 		</div>
+		<br>
+		<br>
+		<div><b class="caret"><u><a tabindex="-1"
+					href="javascript:showVendorReport()">Vendor Projection Report</a></u></b></div></div>
 		<br>
 		<div id="divListOfVendors">
 			<div style="margin-bottom: 5px;"><b><u>List of Vendors:</u></b></div>
@@ -38,6 +43,7 @@
 						<td>Is Purchase Order Available?</td>
 						<td>Purchase Number</td>
 						<td>Purchase Type</td>
+						<td>Purchase Cost</td>
 						<td>Actions</td>
 					</tr>
 				</thead>
@@ -65,6 +71,7 @@
 							.getPurchaseNumber() : "N/A"%></td>
 					<td><%=vendor.isPurchaseOrderAvailable() ? listOrderTypes
 							.get(vendor.getOrderType() - 1).getName() : "N/A"%></td>
+					<td><%= vendor.getCost()%></td>
 					<td>
 						<button class="btn" id="btnEdit<%=vendor.getId()%>"
 							onclick="showAddUpdateVendor(<%=vendor.getId()%>, false)">Edit</button>
@@ -101,6 +108,11 @@
 						<td>Purchase Number</td>
 						<td><input type="text" id="purchaseNumber"
 							name="purchaseNumber" value="" /></td>
+					</tr>
+					<tr valign="top">
+						<td>Purchase Cost</td>
+						<td><input type="text" id="cost"
+							name="cost" value="" /></td>
 					</tr>
 					<tr valign="top">
 						<td>Purchase Order Type</td>

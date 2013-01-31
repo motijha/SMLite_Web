@@ -1,6 +1,5 @@
 package com.cisco.assignment.vendor.helper;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,32 +77,17 @@ public class DBSupportHelper {
 	}
 
 	public int addOrUpdateVendor(Vendor vendor) throws SQLException {
+		LOG.info("entry-->"+vendor);
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		session.saveOrUpdate(vendor);
-		session.getTransaction().commit();
+		session.getTransaction().commit();		
 		session.close();
-		return vendor == null ? -1 : 1;
+		LOG.info("Exit-->"+vendor);
+		return (vendor == null) ? -1 : 1;
+		
 	}
-
-	/*public int updateVendor(Vendor vendor) throws SQLException {
-		if (conn != null) {
-			PreparedStatement stmt = conn.prepareStatement(SQL_UPDATE_VENDOR,
-					Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, vendor.getName());
-			stmt.setInt(2, vendor.isPurchaseOrderAvailable() ? 1 : 0);
-			stmt.setString(3, vendor.getPurchaseNumber());
-			stmt.setInt(4, vendor.getOrderType());
-			stmt.setInt(5, vendor.getId());
-			stmt.executeUpdate();
-			ResultSet rs = stmt.getGeneratedKeys();
-			if (rs.first()) {
-				return rs.getInt(1);
-			}
-		}
-		return -1;
-	}
-*/
+	
 	public void deleteVendor(int id) throws SQLException {
 		LOG.info("entry-->"+id);
 		Session session = HibernateUtil.getSessionFactory().openSession();
